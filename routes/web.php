@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('admin/admindashboard', [HomeController::class, 'index']);
+    Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
+
+});
+
 require __DIR__.'/auth.php';
 
 
 
-Route::get('admin/admindashboard', [HomeController::class, 'index'])
-    ->middleware(['auth', 'admin']);
+// Route::get('admin/admindashboard', [HomeController::class, 'index'])
+//     ->middleware(['auth', 'admin']);
     
