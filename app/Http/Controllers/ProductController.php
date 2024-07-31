@@ -38,6 +38,12 @@ class ProductController extends Controller
       }
    }
 
+
+   public function edit($id)
+    {
+        $products = Product::findOrFail($id);
+        return view('admin.product.update', compact('products'));
+    }
    
 
 }
