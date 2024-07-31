@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
 
     Route::Post('/admin/products/save', [ProductController::class, 'save'])->name('admin/products/save');
 
+    Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
+
 });
 
 require __DIR__.'/auth.php';
