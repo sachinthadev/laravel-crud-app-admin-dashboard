@@ -44,8 +44,36 @@ class ProductController extends Controller
         $products = Product::findOrFail($id);
         return view('admin.product.update', compact('products'));
     }
+
+
+    public function update(Request $request, $id)
+    {
+        $products = Product::findOrFail($id);
+        $title = $request->title;
+        $category = $request->category;
+        $price = $request->price;
+ 
+        $products->title = $title;
+        $products->category = $category;
+        $products->price = $price;
+        $data = $products->save();
+        if ($data) {
+         $request->session()->put('success', 'Product Update Successfully');
+            return redirect(route('admin/products'));
+        } else {
+         $request->session()->put('error', 'Some problem occure');
+            return redirect(route('admin/products/update'));
+        }
    
 
 }
 
+
+
+public function delete($id)
+{
+    $products = Product::findOrFail($id)->delete();
+        return redirect(route('admin/products'));
+    }
+}
 

@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');
 
+    Route::get('/admin/products/delete{id}', [ProductController::class, 'delete'])->name('admin/products/delete');
+
 });
 
 require __DIR__.'/auth.php';
