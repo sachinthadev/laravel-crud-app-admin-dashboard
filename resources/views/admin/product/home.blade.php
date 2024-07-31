@@ -10,22 +10,17 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h3 class="text-3xl font-bold dark:text-black">List of Product</h3>
+                    <div class="flex justify-end items-center">
+                        <a href="{{ route('admin/products/create') }}" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                            Add Product
+                        </a>
+                    </div>
                    
 
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-                                <div class="flex justify-between items-center">
-                                    
-                                    <a href="{{ route('admin/products/create') }}" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                                        Add Product
-                                    </a>
-                                    @if(Session::has('success'))
-                                    <div class="text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-                                        <span class="font-medium">{{ Session::get('success') }}</span> 
-                                      </div>
-                                      @endif
-                                </div>
+                               
                                 <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
                                     Browse a list of Flowbite products designed to help you work and play, stay organized, get answers, keep in touch, grow your business, and more.
                                 </p>
