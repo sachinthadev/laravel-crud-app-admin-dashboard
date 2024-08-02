@@ -25,19 +25,19 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('admin/admindashboard', [HomeController::class, 'index']);
     
-    Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
+    Route::get('products', [ProductController::class, 'index'])->name('products');
 
-    Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin/products/create');
+    Route::get('create', [ProductController::class, 'create'])->name('create');
 
-    Route::Post('/admin/products/save', [ProductController::class, 'save'])->name('admin/products/save');
+    Route::Post('save', [ProductController::class, 'save'])->name('save');
 
-    Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
+    Route::get('edit/{id}', [ProductController::class, 'edit'])->name('edit');
 
-    Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');
+    Route::put('edit/{id}', [ProductController::class, 'update'])->name('update');
 
-    Route::get('/admin/products/delete{id}', [ProductController::class, 'delete'])->name('admin/products/delete');
+    Route::get('delete{id}', [ProductController::class, 'delete'])->name('delete');
 
-    Route::get('/admin/products/joint', [JointController::class, 'index'])->name('admin/products/joint');
+    Route::get('joint', [JointController::class, 'index'])->name('joint');
 
 });
 

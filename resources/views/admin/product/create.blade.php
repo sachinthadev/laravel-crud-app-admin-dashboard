@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <div class="m-4 p-4 flex justify-between items-center">
                         <span class="text-lg font-semibold">Product Add</span>
-                        <a href="{{ route('admin/products') }}" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        <a href="{{ route('products') }}" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             Go Back
                         </a>
                         @if(session()->has('error'))
@@ -23,7 +23,7 @@
                     
                     
 
-                        <form action="{{route('admin/products/save')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('save')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="grid gap-6 mb-6 ">
                                 <div>

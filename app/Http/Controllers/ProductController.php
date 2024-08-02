@@ -31,7 +31,7 @@ class ProductController extends Controller
       $data=Product::create($validation);
       if($data){
          $request->session()->put('success','Product Add Successfully');
-       return redirect(route('admin/products'));
+       return redirect(route('products'));
       }else{
          $request->session()->put('error','Some problem occure');
        return redirect(route('admin.products.create'));
@@ -59,10 +59,10 @@ class ProductController extends Controller
         $data = $products->save();
         if ($data) {
          $request->session()->put('success', 'Product Update Successfully');
-            return redirect(route('admin/products'));
+            return redirect(route('products'));
         } else {
          $request->session()->put('error', 'Some problem occure');
-            return redirect(route('admin/products/update'));
+            return redirect(route('update'));
         }
    
 
@@ -73,7 +73,7 @@ class ProductController extends Controller
 public function delete($id)
 {
     $products = Product::findOrFail($id)->delete();
-        return redirect(route('admin/products'));
+        return redirect(route('products'));
     }
 }
 
