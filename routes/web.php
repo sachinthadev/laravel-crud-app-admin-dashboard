@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('admin/admindashboard', [HomeController::class, 'index']);
+    Route::get('admin', [HomeController::class, 'index'])->name('admin');
     
     Route::get('products', [ProductController::class, 'index'])->name('products');
 
