@@ -12,7 +12,7 @@
                 <h3 class="text-3xl font-bold dark:text-black">Edit Product</h3>
 
 
-                <form action="{{route('admin/products/update', $products->id)}}" method="POST"  >
+                <form action="{{route('update', $products->id)}}" method="POST"  >
                     @csrf
                     @method('PUT')
                     <div class="grid gap-6 mb-6 ">

@@ -27,8 +27,19 @@ class ProductController extends Controller
        'title' =>'required',
        'category'=>'required',
        'price' =>'required',
+       'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
       $data=Product::create($validation);
+      if ($request->hasFile('photo')) {
+         // Get the uploaded file
+         $file = $request->file('photo');
+         // Generate a unique filename
+         $filename = time() . '.' . $file->getClientOriginalExtension();
+         // Save the file in the 'uploads' directory
+         $file->storeAs('uploads', $filename, 'public');
+         // Save the file path in the database
+         $validatedData['photo'] = $filename;
+     }
       if($data){
          $request->session()->put('success','Product Add Successfully');
        return redirect(route('products'));
